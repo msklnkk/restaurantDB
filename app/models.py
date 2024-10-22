@@ -1,3 +1,4 @@
+
 from sqlalchemy import Column, Integer, String, Numeric, Date, ForeignKey
 from sqlalchemy.orm import relationship
 from .database import Base
@@ -27,3 +28,11 @@ class Order(Base):
     staffid = Column(Integer, ForeignKey("staff.staffid"))
     clientid = Column(Integer, ForeignKey("clients.clientid"))
     payment_method = Column(String)
+
+class Table(Base):
+    __tablename__ = "tables"
+    tableid = Column(Integer, primary_key=True, index=True)
+
+class Staff(Base):
+    __tablename__ = "staff"
+    staffid = Column(Integer, primary_key=True, index=True)
